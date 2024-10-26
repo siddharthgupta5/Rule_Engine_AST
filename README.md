@@ -3,6 +3,7 @@
 ## Project Description
 
 This project implements a Rule Engine that uses Abstract Syntax Trees (AST) to evaluate complex rules and conditions based on user-defined attributes. This engine allows for dynamic rule creation, combination, modification, and evaluation for various use cases, such as determining user eligibility based on attributes like age, department, income, and experience.  The application follows a 3-tier architecture, comprising a backend API, data storage, and a simple frontend for interaction.
+The frontend provides a simple UI to create, view, combine, and evaluate rules.
 
 ## Features
 
@@ -11,6 +12,8 @@ This project implements a Rule Engine that uses Abstract Syntax Trees (AST) to e
 3. Evaluate rules against user data to check eligibility.
 4. Update rules by modifying existing expressions.
 5. Validation for valid attributes and handling of invalid rules.
+
+Rules are stored as ASTs, making evaluation and modification efficient.
 
 ## Data Storage
 
@@ -99,7 +102,35 @@ cd backend
 npm tests
 ```
    
-   
+## Example
+
+- Create a Rule
+```js
+ {
+  "ruleString": "(age > 28 && department == 'Marketing')",
+  "name": "Marketing Eligibility"
+ }
+```
+
+- Evaluate a Rule
+```js
+ {
+  "ruleId": "<ruleId>",
+  "data": {
+    "age": 30,
+    "department": "Marketing",
+    "salary": 50000
+  }
+}
+```
+
+## API Endpoints
+
+- Create a Rule: ```js POST /api/rules/create```
+- Combine Rules: ```js POST /api/rules/combine```
+- Evaluate Rule: ```js POST /api/rules/evaluate```
+- Get ALL Rules: ```js GET /api/rules```
+- Evaluate Rule: ```js POST /api/rules/update/:id```
 
 
 
