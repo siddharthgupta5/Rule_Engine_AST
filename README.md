@@ -1,134 +1,106 @@
-# Rule Engine Application
+# Weather Monitoring Application
 
-## Overview
-This **Rule Engine Application** dynamically creates, combines, evaluates, and updates rules using an **Abstract Syntax Tree (AST)**. It allows defining rules based on user attributes like age, department, income, and spend to determine eligibility. The application follows a **3-tier architecture**, comprising a backend API, data storage, and a simple frontend for interaction.
+## Project Description
 
-### Key Features
-- **Create** rules using simple expressions like `(age > 30 && salary > 60000)`.
-- **Combine** rules logically (e.g., using 'AND' or 'OR').
-- **Evaluate** rules against user data to check eligibility.
-- **Update** rules by modifying existing expressions.
-- **Validation** for valid attributes and handling of invalid rules.
+This project implements a Rule Engine that uses Abstract Syntax Trees (AST) to evaluate complex rules and conditions based on user-defined attributes. This engine allows for dynamic rule creation, combination, modification, and evaluation for various use cases, such as determining user eligibility based on attributes like age, department, income, and experience.  The application follows a 3-tier architecture, comprising a backend API, data storage, and a simple frontend for interaction.
 
-### Tech Stack
-- **Backend**: Node.js, Express.js, Mongoose, MongoDB
-- **Frontend**: React.js (basic UI for interacting with the backend)
-- **Database**: MongoDB (for storing rules and metadata)
-- **Testing**: Jest, Supertest
+## Features
 
-## Getting Started
+1. Create rules using simple expressions like ```js(age > 30 && salary > 50000)```.
+2. Combine rules logically (e.g., using 'AND' or 'OR').
+3. Evaluate rules against user data to check eligibility.
+4. Update rules by modifying existing expressions.
+5. Validation for valid attributes and handling of invalid rules.
 
-### Prerequisites
-- Ensure you have **Node.js** and **npm** installed.
-- Have access to **MongoDB Atlas** or a local instance of **MongoDB**.
+## Data Storage
 
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/kshitijcodesstuff/zeotap_rule_engine
-   ```
-
-2. **Navigate to the backend directory**
-   ```bash
-   cd zeotap_rule_engine/backend
-   ```
-
-3. **Install backend dependencies**
-   ```bash
-   npm install
-   ```
-
-4. **Start the backend server**
-   ```bash
-   npm start
-   ```
-
-   The backend server will run on **http://localhost:5001** by default.
-
-5. **Navigate to the frontend directory**
-   ```bash
-   cd ../frontend
-   ```
-
-6. **Install frontend dependencies**
-   ```bash
-   npm install
-   ```
-
-7. **Start the frontend server**
-   ```bash
-   npm start
-   ```
-
-   The frontend will run on **http://localhost:3000** by default.
-
-### Testing
-
-1. **Navigate to the backend directory**
-   ```bash
-   cd ../backend
-   ```
-
-2. **Run tests**
-   ```bash
-   npm test
-   ```
-
-   This will run the **unit and integration tests** for the rule engine's backend.
-
-## API Endpoints
-
-- **Create Rule**: `POST /api/rules/create`
-  - Request Body: `{ "ruleString": "(age > 30 && salary > 60000)", "name": "High Earners" }`
-  - Response: JSON object containing the created rule.
-
-- **Combine Rules**: `POST /api/rules/combine`
-  - Request Body: `{ "ruleIds": ["<ruleId1>", "<ruleId2>"], "name": "Combined Rule" }`
-  - Response: JSON object containing the combined rule.
-
-- **Evaluate Rule**: `POST /api/rules/evaluate`
-  - Request Body: `{ "ruleId": "<ruleId>", "data": { "age": 35, "salary": 70000 } }`
-  - Response: `{ "result": true/false }`
-
-- **Update Rule**: `PUT /api/rules/update/:id`
-  - Request Body: `{ "ruleString": "(age > 25)" }`
-  - Response: JSON object containing the updated rule.
-
-- **Get All Rules**: `GET /api/rules`
-  - Response: JSON array containing all rules.
-
-## Example Usage
-
-- **Create a Rule**
-  ```json
-  {
-    "ruleString": "(age > 30 && department == 'Sales')",
-    "name": "Sales Eligibility"
-  }
-  ```
-
-- **Evaluate a Rule**
-  ```json
-  {
-    "ruleId": "<ruleId>",
-    "data": {
-      "age": 35,
-      "department": "Sales",
-      "salary": 70000
-    }
-  }
-  ```
-
-## Additional Information
-
-- The backend uses **Mongoose** for defining models and interacting with MongoDB.
-- Rules are stored as ASTs, making evaluation and modification efficient.
-- The frontend provides a simple UI to create, view, combine, and evaluate rules.
-
-## Contributing
-
-Feel free to open issues or submit pull requests for improvements and new features.
+-  The backend uses Mongoose for defining models and interacting with MongoDB.
 
 
----
+## Tech Stacks:
+
+-   Tech stack: MERN stack. 
+-   Error handling both on the server and on the client
+
+## Prerequisites
+- Ensure you have Node.js and npm installed.
+
+## Dependencies:
+   ### Backend:
+    -  Node.js (v18.12.1)
+    -  Express (v4.x)
+    -  Axios (v1.x)
+    -  Mongoose (v6.x)
+    -  dotenv (v16.x)
+    -  Nodemon (v2.x) (for development) 
+    
+   ### Frontend:
+    -  React (v18.x)
+    -  Axios (v1.x)
+
+   ### Testing:
+    -  Supertest (v7.x)
+    -  Jest (v29.x)
+
+Here all the enclosed braces indicate the version of these Tech Stacks used.
+
+## Installation and Setup
+
+1. Clone the repository:
+```bash
+git clone https://github.com/siddharthgupta5/Rule_Engine_AST.git
+```
+
+2. Change Directory:
+```bash
+cd backend
+``` 
+
+4. Install dependencies:
+```bash
+npm install
+```
+
+3. Create the .env file with your values for PORT and USERNAME and PASSWORD for the MONGO_URI (for the MongoDB database or add your MONGODB_URL in the MONGO_URI).
+```js
+PORT=...
+MONGO_URI=mongodb+srv://<USERNAME>:<PASSWORD>@cluster0.lw6c7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+```
+
+4. Start the development server:
+```bash
+npm start
+```
+
+5. Open another terminal. Navigate into the project directory:
+```bash
+cd frontend
+```
+
+6. Install dependencies:
+```bash
+npm install
+```
+
+7. Start the frontend server:
+```bash
+npm start
+```
+
+## For Testing the suit cases and testcases
+
+1. Navigate back to the backend directory:
+```bash
+cd backend
+```
+
+2. Run tests:
+```bash
+npm tests
+```
+   
+   
+
+
+
+
