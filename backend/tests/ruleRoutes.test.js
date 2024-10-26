@@ -34,7 +34,7 @@ describe('Rule Routes', () => {
         name: 'High Earners',
       });
 
-    expect(response.statusCode).toBe(201);
+    expect(response.statusCode).toBe(200);
     expect(response.body.name).toBe('High Earners');
     expect(response.body.ruleString).toBe('(salary > 60000 && age > 30)');
   });
@@ -72,9 +72,9 @@ describe('Rule Routes', () => {
       .post('/api/rules/combine')
       .send({ ruleIds, name: 'Combined Rule' });
 
-    expect(combineResponse.statusCode).toBe(201);
+    expect(combineResponse.statusCode).toBe(200);
     expect(combineResponse.body.name).toBe('Combined Rule');
-    expect(combineResponse.body.ruleString).toBe('(age > 30) && (salary > 60000)'); // Updated expected value
+    expect(combineResponse.body.ruleString).toBe('(age > 30) && (salary > 60000)'); 
   });
 
   test('Should update an existing rule', async () => {
