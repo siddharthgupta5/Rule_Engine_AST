@@ -3,6 +3,8 @@
 ## Project Description
 
 This project implements a Rule Engine that uses Abstract Syntax Trees (AST) to evaluate complex rules and conditions based on user-defined attributes. This engine allows for dynamic rule creation, combination, modification, and evaluation for various use cases, such as determining user eligibility based on attributes like age, department, income, and experience.  The application follows a 3-tier architecture, comprising a backend API, data storage, and a simple frontend for interaction.
+
+
 The frontend provides a simple UI to create, view, combine, and evaluate rules.
 
 ## Features
